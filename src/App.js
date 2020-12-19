@@ -3,6 +3,7 @@ import * as React from 'react';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 import CreateEvent from './pages/events/CreateEvent';
+import LandingPage from './pages/index';
 
 const config = {
   useSystemColorMode: false,
@@ -15,7 +16,7 @@ const customTheme = extendTheme({ config });
 function App() {
   return (
     <ChakraProvider theme={customTheme}>
-      <CreateEvent />
+      <LandingPage />
     </ChakraProvider>
   );
 }

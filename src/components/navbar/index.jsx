@@ -3,6 +3,7 @@ import * as React from 'react';
 import {
   Button,
   Container,
+  Divider,
   Flex,
   HStack,
   Image,
@@ -15,23 +16,25 @@ import logo from '../../assets/logo.png';
 
 export default function Navbar() {
   return (
-    <Container maxW="6xl" d="flex" as={Stack} mt={5}>
-      <HStack>
+    <Container maxW="6xl" mt={5} mb={10}>
+      <Flex>
         <Link cursor="pointer">
           <Image src={logo} w={150} />
         </Link>
 
         <Spacer />
 
-        <HStack spacing={5}>
-          <Button variant="ghost">
+        <Flex Spacer={2}>
+          <Button variant="ghost" size="lg">
             <Link>Create Event</Link>
           </Button>
-          <Button variant="ghost">
+          <Button variant="ghost" size="lg">
             <Link>Sign In</Link>
           </Button>
-        </HStack>
-      </HStack>
+        </Flex>
+      </Flex>
+
+      <Divider mt={5} />
     </Container>
   );
 }

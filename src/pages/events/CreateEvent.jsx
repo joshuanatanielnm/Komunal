@@ -25,7 +25,7 @@ export default function CreateEvent() {
   return (
     <div>
       <Navbar />
-      <Container maxW="3xl" as={Stack} mt={10}>
+      <Container maxW="3xl" as={Stack}>
         <Heading>Basic Info</Heading>
         <Text maxW="xl" mb={5}>
           Name your event and tell event-goers why they should come. Add details
