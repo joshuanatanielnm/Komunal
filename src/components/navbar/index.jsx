@@ -23,12 +23,12 @@ export default function Navbar() {
 
         <Flex>
           <Link to="/create-event">
-            <Button variant="ghost" size="lg" href="/create-event" type="link">
+            <Button variant="ghost" size="md" href="/create-event" type="link">
               Create Event
             </Button>
           </Link>
           <Link to="/sign-in">
-            <Button variant="ghost" size="lg" type="link">
+            <Button variant="ghost" size="md" type="link">
               Sign In
             </Button>
           </Link>
