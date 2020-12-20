@@ -79,6 +79,7 @@ export default function CreateEvent() {
             placeholder="Start date"
             size="lg"
             id="upload-image"
+            onfocus="(this.type='date')"
           />
           <Box w={5} />
           <Input
@@ -86,6 +87,7 @@ export default function CreateEvent() {
             placeholder="Start time"
             size="lg"
             id="upload-image"
+            onfocus="(this.type='time')"
           />
         </Flex>
 
