@@ -45,7 +45,7 @@ export default function Card({ eventProperty }) {
         <Heading as="h4" size="md">
           {eventProperty.eventDate}, {eventProperty.eventTime}
         </Heading>
-        <Button colorScheme="yellow">Join Event</Button>
+        <Button colorScheme="gray">Join Event</Button>
       </Stack>
     </Box>
   );
