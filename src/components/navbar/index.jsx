@@ -6,12 +6,15 @@ import {
   Image,
   Spacer,
 } from '@chakra-ui/react';
+import React, { useContext } from 'react';
 
+import { AuthContext } from './../../hooks/Auth';
 import { Link } from 'react-router-dom';
-import React from 'react';
 import logo from '../../assets/logo.png';
+import { projectAuth } from '../../firebase/config';
 
 export default function Navbar() {
+  const { currentUser } = useContext(AuthContext);
   return (
     <Container maxW="6xl" mt={5} mb={10}>
       <Flex>
@@ -27,11 +30,22 @@ export default function Navbar() {
               Create Event
             </Button>
           </Link>
-          <Link to="/sign-in">
-            <Button variant="ghost" size="md" type="link">
-              Sign In
+          {currentUser ? (
+            <Button
+              variant="ghost"
+              size="md"
+              type="link"
+              onClick={() => projectAuth.signOut()}
+            >
+              Logout
             </Button>
-          </Link>
+          ) : (
+            <Link to="/sign-in">
+              <Button variant="ghost" size="md" type="link">
+                Sign In
+              </Button>
+            </Link>
+          )}
         </Flex>
       </Flex>
 

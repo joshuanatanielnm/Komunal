@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {
   Box,
   Button,
@@ -13,13 +11,19 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
+import React, { useState } from 'react';
 
 import Navbar from '../../components/navbar/index';
 
 export default function CreateEvent() {
+  const [file, setFile] = useState(null);
+  const [error, setError] = useState(null);
+
+  const types = ['image/png', 'image/jpg', 'image/jpeg'];
   const uploadClick = () => {
     document.getElementById('upload-image').click();
   };
+
   return (
     <div>
       <Navbar />
@@ -79,7 +83,6 @@ export default function CreateEvent() {
             placeholder="Start date"
             size="lg"
             id="upload-image"
-            onfocus="(this.type='date')"
           />
           <Box w={5} />
           <Input
@@ -87,7 +90,6 @@ export default function CreateEvent() {
             placeholder="Start time"
             size="lg"
             id="upload-image"
-            onfocus="(this.type='time')"
           />
         </Flex>
 
