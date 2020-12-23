@@ -3,6 +3,7 @@ import {
   Button,
   Heading,
   Image,
+  Link,
   Stack,
   Text,
   WrapItem,
@@ -11,6 +12,7 @@ import {
 import React from 'react';
 
 export default function Card({ eventProperty }) {
+  console.log(eventProperty);
   return (
     <Box
       borderRadius="md"
@@ -31,21 +33,30 @@ export default function Card({ eventProperty }) {
         h={36}
         objectFit="cover"
         objectPosition="top"
-        src={eventProperty.eventImage}
+        src={eventProperty.url}
         width="full"
       />
       <Stack p={4} spacing={4} h="full">
         <Text>
-          {eventProperty.eventType} / {eventProperty.eventCategory}
+          {eventProperty.type} / {eventProperty.category}
         </Text>
         <Heading as="h4" size="md">
           {eventProperty.eventTitle}
         </Heading>
-        <Text>Event by, {eventProperty.eventOrganizer}</Text>
+        <Text>Event by, {eventProperty.organizer}</Text>
         <Heading as="h4" size="md">
           {eventProperty.eventDate}, {eventProperty.eventTime}
         </Heading>
-        <Button colorScheme="gray">Join Event</Button>
+        <Link
+          colorScheme="gray"
+          href={eventProperty.linkRegistration}
+          textAlign="center"
+          bg="gray.200"
+          fontSize="lg"
+          p={1}
+        >
+          Join Event
+        </Link>
       </Stack>
     </Box>
   );
