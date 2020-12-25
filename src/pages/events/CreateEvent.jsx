@@ -12,7 +12,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import {
   projectFirestore,
   projectStorage,
@@ -20,6 +20,7 @@ import {
 } from './../../firebase/config';
 
 import Navbar from '../../components/navbar/index';
+import useStorage from '../../hooks/useStorage';
 
 export default function CreateEvent({ history }) {
   const [file, setFile] = useState(null);
@@ -44,7 +45,7 @@ export default function CreateEvent({ history }) {
   };
 
   const handleCreateEvent = useCallback(
-    async event => {
+    event => {
       event.preventDefault();
       const {
         eventTitle,
@@ -59,8 +60,10 @@ export default function CreateEvent({ history }) {
       const storageRef = projectStorage.ref(file.name);
       const collectionRef = projectFirestore.collection('Event');
 
-      storageRef.put(file).on('state_changed', async () => {
+      storageRef.put(file).then(async () => {
+        console.log('send to db');
         const url = await storageRef.getDownloadURL();
+        setUrl(url);
         const createdAt = timestamp();
         collectionRef.add({
           eventTitle: eventTitle.value,
@@ -73,9 +76,7 @@ export default function CreateEvent({ history }) {
           url,
           createdAt,
         });
-        setUrl(url);
       });
-
       history.push('/');
     },
     [history, file]

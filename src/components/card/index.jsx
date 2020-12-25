@@ -12,7 +12,6 @@ import {
 import React from 'react';
 
 export default function Card({ eventProperty }) {
-  console.log(eventProperty);
   return (
     <Box
       borderRadius="md"
