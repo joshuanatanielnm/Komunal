@@ -48,7 +48,9 @@ export default function Card({ eventProperty }) {
         </Heading>
         <Link
           colorScheme="gray"
-          href={eventProperty.linkRegistration}
+          href={`https://${eventProperty.linkRegistration}`}
+          target="_blank"
+          rel="noopener noreferrer"
           textAlign="center"
           bg="gray.200"
           fontSize="lg"
