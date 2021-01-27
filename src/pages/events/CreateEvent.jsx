@@ -10,15 +10,18 @@ import {
   Select,
   Stack,
   Text,
+  Textarea,
   VStack,
 } from '@chakra-ui/react';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import {
   projectFirestore,
   projectStorage,
   timestamp,
 } from './../../firebase/config';
 
+import { AuthContext } from './../../hooks/Auth';
+import Footer from '../../components/footer';
 import Navbar from '../../components/navbar/index';
 import useStorage from '../../hooks/useStorage';
 
@@ -26,6 +29,9 @@ export default function CreateEvent({ history }) {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
+
+
+  const { currentUser } = useContext(AuthContext);
 
   const types = ['image/png', 'image/jpg', 'image/jpeg'];
   const uploadClick = () => {
@@ -55,6 +61,7 @@ export default function CreateEvent({ history }) {
         linkRegistration,
         eventDate,
         eventTime,
+        desc
       } = event.target.elements;
 
       const storageRef = projectStorage.ref(file.name);
@@ -73,13 +80,15 @@ export default function CreateEvent({ history }) {
           linkRegistration: linkRegistration.value,
           eventDate: eventDate.value,
           eventTime: eventTime.value,
+          desc: desc.value,
+          email: currentUser.email,
           url,
           createdAt,
         });
       });
       history.push('/');
     },
-    [history, file]
+    [history, file, currentUser]
   );
 
   return (
@@ -112,7 +121,11 @@ export default function CreateEvent({ history }) {
               placeholder="Link registration"
               size="lg"
               name="linkRegistration"
+              pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
             />
+
+
+            <Textarea placeholder="Event Description" size="lg" name="desc"/>
 
             <Box
               bg="black"
@@ -127,7 +140,6 @@ export default function CreateEvent({ history }) {
             </Box>
 
             <Center>{file && <div>{file.name}</div>}</Center>
-
             <Input
               type="file"
               placeholder="Link registration"
@@ -137,6 +149,7 @@ export default function CreateEvent({ history }) {
               onChange={changeHandler}
               name="eventImage"
             />
+
           </VStack>
           <br />
           <Heading>Date & Time</Heading>
@@ -167,6 +180,7 @@ export default function CreateEvent({ history }) {
           </Button>
         </form>
       </Container>
+      <Footer/>
     </div>
   );
 }

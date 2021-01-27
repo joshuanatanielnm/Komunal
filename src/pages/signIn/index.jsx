@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Container,
   Heading,
@@ -7,7 +8,7 @@ import {
   InputRightElement,
   Stack,
   Text,
-  VStack,
+  VStack
 } from '@chakra-ui/react';
 import React, { useCallback, useContext, useState } from 'react';
 import { Redirect, withRouter } from 'react-router';
@@ -45,7 +46,7 @@ export default function SignIn({ history }) {
   }
 
   return (
-    <div>
+    <Box>
       <Navbar />
       <Container maxW="3xl" as={Stack}>
         <Heading>Sign In</Heading>
@@ -83,6 +84,6 @@ export default function SignIn({ history }) {
           </Link>
         </Text>
       </Container>
-    </div>
+    </Box>
   );
 }
