@@ -6,6 +6,7 @@ import {
   Flex,
   HStack,
   Heading,
+  Image,
   Input,
   Select,
   Stack,
@@ -139,7 +140,10 @@ export default function CreateEvent({ history }) {
               Upload image
             </Box>
 
-            <Center>{file && <div>{file.name}</div>}</Center>
+            <Center>
+              {file && <Image src={URL.createObjectURL(file)} />}
+            </Center>
+
             <Input
               type="file"
               placeholder="Link registration"
@@ -148,6 +152,7 @@ export default function CreateEvent({ history }) {
               id="upload-image"
               onChange={changeHandler}
               name="eventImage"
+              pattern='([^\\s]+(\\.(?i)(jpe?g|png|))$)'
             />
 
           </VStack>
