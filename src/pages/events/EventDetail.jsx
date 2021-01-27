@@ -46,23 +46,23 @@ export default function EventDetail(params) {
               <Heading as='h5' size='md'>Share to social media</Heading>
               <HStack>
                 <FacebookShareButton
-                  url={"http://www.camperstribe.com"}
-                  quote={"CampersTribe - World is yours to explore"}
-                  hashtag="#camperstribe">
+                  url={"http://komunal.vercel.app/"}
+                  quote={"Komunal - Connect with people with same interest"}
+                  hashtag="#Komunal">
                   <FacebookIcon size={36} />
                 </FacebookShareButton>
 
                 <TwitterShareButton
-                  url={"http://www.camperstribe.com"}
-                  quote={"CampersTribe - World is yours to explore"}
-                  hashtag="#camperstribe">
+                  url={"http://komunal.vercel.app/"}
+                  quote={"Komunal - Connect with people with same interest"}
+                  hashtag="#Komunal">
                   <TwitterIcon size={36} />
                 </TwitterShareButton>
 
                 <LinkedinShareButton
-                  url={"http://www.camperstribe.com"}
-                  quote={"CampersTribe - World is yours to explore"}
-                  hashtag="#camperstribe">
+                  url={"http://komunal.vercel.app/"}
+                  quote={"Komunal - Connect with people with same interest"}
+                  hashtag="#Komunal">
                   <LinkedinIcon size={36} />
                 </LinkedinShareButton>
               </HStack>
