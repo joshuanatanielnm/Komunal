@@ -42,18 +42,7 @@ export default function Card({ eventProperty }) {
           See details
         </Button>
 
-        {/* <Link
-          colorScheme="gray"
-          href={`${eventProperty.linkRegistration}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          textAlign="center"
-          bg="gray.200"
-          fontSize="lg"
-          p={1}
-        >
-          Join Event
-        </Link> */}
+    
       </Stack>
     </Box>
   );
