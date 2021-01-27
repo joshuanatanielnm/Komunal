@@ -20,7 +20,7 @@ export default function Navbar() {
     <Container maxW="6xl" mt={5} mb={10}>
       <Flex>
         <Link cursor="pointer" to="/" type="link">
-          <Image src={logo} w={150} />
+          <Image src={logo} w={130} />
         </Link>
 
         <Spacer />
@@ -34,7 +34,7 @@ export default function Navbar() {
           {currentUser ? (
             <Button
               variant="ghost"
-              size="md"
+              size='sm'
               type="link"
               onClick={() => projectAuth.signOut()}
             >
@@ -43,12 +43,12 @@ export default function Navbar() {
           ) : (
             <Box>
               <Link to="/sign-in">
-                <Button variant="ghost" size="md" type="link">
+                <Button variant="ghost" size='sm' type="link">
                   Sign In
                 </Button>
               </Link>
               <Link to="/sign-up">
-                <Button colorScheme="yellow"  size="md" type="link">
+                <Button colorScheme="yellow" size='sm' type="link">
                   Sign Up
                 </Button>
               </Link>
