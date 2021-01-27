@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Container,
   Divider,
@@ -25,11 +26,11 @@ export default function Navbar() {
         <Spacer />
 
         <Flex>
-          <Link to="/create-event">
+          {/* <Link to="/create-event">
             <Button variant="ghost" size="md" href="/create-event" type="link">
-              Create Event
+              Your Events
             </Button>
-          </Link>
+          </Link> */}
           {currentUser ? (
             <Button
               variant="ghost"
@@ -40,11 +41,18 @@ export default function Navbar() {
               Logout
             </Button>
           ) : (
-            <Link to="/sign-in">
-              <Button variant="ghost" size="md" type="link">
-                Sign In
-              </Button>
-            </Link>
+            <Box>
+              <Link to="/sign-in">
+                <Button variant="ghost" size="md" type="link">
+                  Sign In
+                </Button>
+              </Link>
+              <Link to="/sign-up">
+                <Button colorScheme="yellow"  size="md" type="link">
+                  Sign Up
+                </Button>
+              </Link>
+            </Box>
           )}
         </Flex>
       </Flex>

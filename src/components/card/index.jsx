@@ -1,14 +1,6 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Image,
-  Link,
-  Stack,
-  Text,
-  WrapItem,
-} from '@chakra-ui/react';
+import { Box, Button, Heading, Image, Stack, Text } from '@chakra-ui/react';
 
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 export default function Card({ eventProperty }) {
@@ -46,18 +38,11 @@ export default function Card({ eventProperty }) {
         <Heading as="h4" size="md">
           {eventProperty.eventDate}, {eventProperty.eventTime}
         </Heading>
-        <Link
-          colorScheme="gray"
-          href={`https://${eventProperty.linkRegistration}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          textAlign="center"
-          bg="gray.200"
-          fontSize="lg"
-          p={1}
-        >
-          Join Event
-        </Link>
+        <Button as={Link} to={{pathname:'event-detail', state: eventProperty}}>
+          See details
+        </Button>
+
+    
       </Stack>
     </Box>
   );

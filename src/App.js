@@ -5,6 +5,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 import { AuthProvider } from './hooks/Auth';
 import CreateEvent from './pages/events/CreateEvent';
+import EventDetail from './pages/events/EventDetail'
 import LandingPage from './pages/index';
 import PrivateRoute from './pages/PrivateRoute';
 import SignIn from './pages/signIn';
@@ -27,6 +28,7 @@ function App() {
           <PrivateRoute exact path="/create-event" component={CreateEvent} />
           <Route exact path="/sign-in" component={SignIn} />
           <Route exact path="/sign-up" component={SignUp} />
+          <Route exact path="/event-detail" component={EventDetail} />
         </ChakraProvider>
       </Router>
     </AuthProvider>

@@ -1,5 +1,6 @@
 import { Button, Container, Heading } from '@chakra-ui/react';
 
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 export default function Hero() {
@@ -12,9 +13,12 @@ export default function Hero() {
         Join us and find event, that you interested, or join community that
         available in your city
       </Heading>
-      <Button mt={16} size="lg" colorScheme="yellow">
-        Browse event
-      </Button>
+
+      <Link to="/create-event" style={{ textDecoration: 'none' }}>
+        <Button mt={16} size="lg" colorScheme="yellow" href="/create-event" type='link'>
+          Create Event
+        </Button>
+      </Link>
     </Container>
   );
 }
