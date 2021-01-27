@@ -42,7 +42,7 @@ export default function EventDetail(params) {
           </VStack>
 
             <Spacer/>
-            <VStack align='flex-end'>
+            <VStack align={{base:'flex-start', md:'flex-end'}}>
               <Heading as='h5' size='md'>Share to social media</Heading>
               <HStack>
                 <FacebookShareButton
