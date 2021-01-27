@@ -118,7 +118,7 @@ export default function CreateEvent({ history }) {
               </Select>
             </HStack>
             <Input
-              placeholder="Link registration"
+              placeholder="Link registration (example: https://komunal.vercel.app/)"
               size="lg"
               name="linkRegistration"
               pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
